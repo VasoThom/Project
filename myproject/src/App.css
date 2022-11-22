@@ -60,3 +60,15 @@ main {
 .weather-box .weather {
   color: white;
 }
+
+.footer {
+  text-align: center;
+  width: 100%;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: whitesmoke;
+  
+}
