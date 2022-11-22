@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.footer {
+  text-align: center;
+  width: 100%;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: whitesmoke;
+  
+}
