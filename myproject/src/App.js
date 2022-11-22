@@ -1,13 +1,16 @@
 import "./App.css";
 import Footer from "./components/Footer";
+import Input from "./components/Input";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <div className="App">
-
-      <header className="App-header">Vaso , Hüseyin , Ammar</header>
-      <Footer/>
-      <header className="App-header"> HI Vaso , Hüseyin , Ammar</header>
-
+       <Navbar />
+       <Input />
+       <div>
+       <Footer />
+       </div>
     </div>
   );
 }
