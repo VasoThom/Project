@@ -122,6 +122,21 @@ export default function Input() {
               </div>
               <div className="weather"> {weather.weather[0].main} </div>
             </div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <button className="btn btn-light" onClick={handleClick} value={3}>
+                3 days
+              </button>
+              <button className="btn btn-light" onClick={handleClick} value={5}>
+                5 days
+              </button>
+              <button
+                className="btn btn-light"
+                onClick={handleClick}
+                value={10}
+              >
+                10 days
+              </button>
+            </div>
           </div>
         ) : (
           <>
@@ -138,18 +153,6 @@ export default function Input() {
             </h1>
           </>
         )}
-
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <button className="btn btn-dark" onClick={handleClick} value={3}>
-            3 days
-          </button>
-          <button className="btn btn-dark" onClick={handleClick} value={5}>
-            5 days
-          </button>
-          <button className="btn btn-dark" onClick={handleClick} value={10}>
-            10 days
-          </button>
-        </div>
 
         <div className="d-flex justify-content-center flex-wrap">
           {days[0]?.forecast?.forecastday.length > 1
