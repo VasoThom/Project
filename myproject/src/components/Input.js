@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -8,8 +8,37 @@ export default function Input() {
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
+  const wapi = {
+    key: "e3a2ede78bf54e8cb8694626222311",
+    base: "https://api.weatherapi.com/v1/forecast.json?key=e3a2ede78bf54e8cb8694626222311&q=Antalya&days=15",
+  };
+
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
+  const [days, setDays] = useState([]);
+  const [whichDays, setWhichDays] = useState();
+
+  console.log("query:", query);
+  console.log("days:", days);
+  console.log("whichDays:", whichDays);
+
+  const handleClick = (e) => {
+    const value = e.target.value;
+    console.log(value);
+    setWhichDays(value);
+  };
+
+  useEffect(() => {
+    fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=e3a2ede78bf54e8cb8694626222311&q=${query}&days=${whichDays}`
+    )
+      .then((data) => data.json())
+      .then((data) => {
+        setDays([data]);
+      });
+  }, [whichDays]);
+
+  console.log(days);
 
   const search = (event) => {
     if (event.key === "Enter") {
@@ -17,7 +46,8 @@ export default function Input() {
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
-          setQuery("");
+          //setQuery("");
+          setWhichDays();
           // console.log(weather);
           console.log(result);
         });
@@ -77,6 +107,41 @@ export default function Input() {
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <button className="btn btn-dark" onClick={handleClick} value={3}>
+            3 days
+          </button>
+          <button className="btn btn-dark" onClick={handleClick} value={5}>
+            5 days
+          </button>
+          <button className="btn btn-dark" onClick={handleClick} value={10}>
+            10 days
+          </button>
+        </div>
+
+        <div className="d-flex justify-content-center flex-wrap">
+          {days[0]?.forecast?.forecastday.length > 1
+            ? days[0].forecast?.forecastday?.map((item) => {
+                return (
+                  <div
+                    class="card m-1 weather-box temperature"
+                    style={{
+                      width: "18rem",
+                      boxShadow: "2px 4px 6px rgba(76, 72, 72, 0.5)",
+                      backgroundColor: "rgb(255, 255, 255, 0.3)",
+                    }}
+                  >
+                    <div class="card-body">
+                      <h5 class="card-title">{item.date}</h5>
+                      <p class="card-text">{item.day.maxtemp_c}°C</p>
+                      <img src={item.day.condition.icon} />
+                    </div>
+                  </div>
+                );
+              })
+            : ""}
+        </div>
+
         {typeof weather.main != "undefined" ? (
           <div>
             <div className="location-box">
