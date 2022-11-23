@@ -8,10 +8,10 @@ export default function Input() {
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
-  const wapi = {
-    key: "e3a2ede78bf54e8cb8694626222311",
+ /*  const wapi = {
+   // key: "e3a2ede78bf54e8cb8694626222311",
     base: "https://api.weatherapi.com/v1/forecast.json?key=e3a2ede78bf54e8cb8694626222311&q=Antalya&days=15",
-  };
+  }; */
 
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
