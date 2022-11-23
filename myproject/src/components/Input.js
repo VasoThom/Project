@@ -8,7 +8,7 @@ export default function Input() {
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
- /*  const wapi = {
+  /*  const wapi = {
    // key: "e3a2ede78bf54e8cb8694626222311",
     base: "https://api.weatherapi.com/v1/forecast.json?key=e3a2ede78bf54e8cb8694626222311&q=Antalya&days=15",
   }; */
@@ -134,7 +134,7 @@ export default function Input() {
                     <div class="card-body">
                       <h5 class="card-title">{item.date}</h5>
                       <p class="card-text">{item.day.maxtemp_c}°C</p>
-                      <img src={item.day.condition.icon} />
+                      <img src={item.day.condition.icon} alt="img" />
                     </div>
                   </div>
                 );
