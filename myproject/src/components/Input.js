@@ -8,7 +8,7 @@ export default function Input() {
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
- /*  const wapi = {
+  /*  const wapi = {
    // key: "e3a2ede78bf54e8cb8694626222311",
     base: "https://api.weatherapi.com/v1/forecast.json?key=e3a2ede78bf54e8cb8694626222311&q=Antalya&days=15",
   }; */
@@ -107,40 +107,6 @@ export default function Input() {
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <button className="btn btn-dark" onClick={handleClick} value={3}>
-            3 days
-          </button>
-          <button className="btn btn-dark" onClick={handleClick} value={5}>
-            5 days
-          </button>
-          <button className="btn btn-dark" onClick={handleClick} value={10}>
-            10 days
-          </button>
-        </div>
-
-        <div className="d-flex justify-content-center flex-wrap">
-          {days[0]?.forecast?.forecastday.length > 1
-            ? days[0].forecast?.forecastday?.map((item) => {
-                return (
-                  <div
-                    class="card m-1 weather-box temperature"
-                    style={{
-                      width: "18rem",
-                      boxShadow: "2px 4px 6px rgba(76, 72, 72, 0.5)",
-                      backgroundColor: "rgb(255, 255, 255, 0.3)",
-                    }}
-                  >
-                    <div class="card-body">
-                      <h5 class="card-title">{item.date}</h5>
-                      <p class="card-text">{item.day.maxtemp_c}°C</p>
-                      <img src={item.day.condition.icon} />
-                    </div>
-                  </div>
-                );
-              })
-            : ""}
-        </div>
 
         {typeof weather.main != "undefined" ? (
           <div>
@@ -155,6 +121,21 @@ export default function Input() {
                 {Math.round(weather.main.temp)} °C
               </div>
               <div className="weather"> {weather.weather[0].main} </div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <button className="btn btn-light" onClick={handleClick} value={3}>
+                3 days
+              </button>
+              <button className="btn btn-light" onClick={handleClick} value={5}>
+                5 days
+              </button>
+              <button
+                className="btn btn-light"
+                onClick={handleClick}
+                value={10}
+              >
+                10 days
+              </button>
             </div>
           </div>
         ) : (
@@ -172,6 +153,29 @@ export default function Input() {
             </h1>
           </>
         )}
+
+        <div className="d-flex justify-content-center flex-wrap">
+          {days[0]?.forecast?.forecastday.length > 1
+            ? days[0].forecast?.forecastday?.map((item) => {
+                return (
+                  <div
+                    class="card m-1 weather-box temperature"
+                    style={{
+                      width: "18rem",
+                      boxShadow: "2px 4px 6px rgba(76, 72, 72, 0.5)",
+                      backgroundColor: "rgb(255, 255, 255, 0.3)",
+                    }}
+                  >
+                    <div class="card-body">
+                      <h5 class="card-title">{item.date}</h5>
+                      <p class="card-text">{item.day.maxtemp_c}°C</p>
+                      <img src={item.day.condition.icon} alt="img" />
+                    </div>
+                  </div>
+                );
+              })
+            : ""}
+        </div>
       </main>
     </div>
   );
