@@ -12,13 +12,34 @@ body {
   height: 100vh;
   width: 100vw;
 }
+body:hover {
+  animation-name: background;
+  animation-duration: 4s;
+}
+@keyframes background {
+  0% {
+    background-color: rgba(163, 163, 167, 0.4);
+  }
+  25% {
+    background-color: #c8b3bf;
+  }
+  50% {
+    background-color: #908f8f;
+  }
+  75% {
+    background-color: #817e7e;
+  }
+  100% {
+    background-color: #b5e1ef;
+  }
+}
 
 main {
-  min-height: 100vh;
+  min-height: 90vh;
   background-image: linear-gradient(
     to bottom,
-    rgba(228, 235, 50, 0.2),
-    rgb(86, 163, 250)
+    rgba(167, 167, 162, 0.5),
+    rgb(86, 163, 250, 0.5)
   );
   padding: 25px;
 }
@@ -85,10 +106,11 @@ main {
 .app {
   /* background-image: url(https://img.freepik.com/free-vector/sky-background-video-conferencing_23-2148625271.jpg?auto=format&h=200); */
   background-size: cover;
-  background-image: url(https://img.freepik.com/free-vector/stormy-rainy-weather-forecast-3d-realistic-icons-set-with-sun-disc-clouds-with-rainfall_1441-3071.jpg?w=1060&t=st=1669143645~exp=1669144245~hmac=c7ce081808d19279290ceb26af1558cf97d9bb3b0b3242134ddc554ec1f05155);
+  background-image: url(https://cdn.disneyanimation.com/uploads/technology/cloud-readme.jpg);
+  /* background-image: url(https://img.freepik.com/free-vector/stormy-rainy-weather-forecast-3d-realistic-icons-set-with-sun-disc-clouds-with-rainfall_1441-3071.jpg?w=1060&t=st=1669143645~exp=1669144245~hmac=c7ce081808d19279290ceb26af1558cf97d9bb3b0b3242134ddc554ec1f05155); */
 }
 .app.warm {
-  background-image: url(https://img.freepik.com/premium-photo/sunny-day-weather-forecast-info-icon-yellow-sun-blue-climate-weather-element-trendy-button-metcast-wf-report-mark-meteo-mobile-app-business-web_256259-3169.jpg?w=1380);
+  background-image: url(https://us.123rf.com/450wm/kraft2727/kraft27271804/kraft2727180400029/kraft2727180400029.jpg?ver=6);
   background-size: cover;
 }
 h1 {

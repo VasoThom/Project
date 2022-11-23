@@ -107,6 +107,38 @@ export default function Input() {
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
+
+        {typeof weather.main != "undefined" ? (
+          <div>
+            <div className="location-box">
+              <div className="location">
+                {weather.name}, {weather.sys.country}
+              </div>
+              <div className="date">{data(new Date())}</div>
+            </div>
+            <div className="weather-box">
+              <div className="temperature">
+                {Math.round(weather.main.temp)} °C
+              </div>
+              <div className="weather"> {weather.weather[0].main} </div>
+            </div>
+          </div>
+        ) : (
+          <>
+            <h1>
+              <Typewriter
+                words={["Vaso", "Huseyin", "Mohamad Ammar", "!"]}
+                loop={true}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </h1>
+          </>
+        )}
+
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button className="btn btn-dark" onClick={handleClick} value={3}>
             3 days
@@ -141,37 +173,6 @@ export default function Input() {
               })
             : ""}
         </div>
-
-        {typeof weather.main != "undefined" ? (
-          <div>
-            <div className="location-box">
-              <div className="location">
-                {weather.name}, {weather.sys.country}
-              </div>
-              <div className="date">{data(new Date())}</div>
-            </div>
-            <div className="weather-box">
-              <div className="temperature">
-                {Math.round(weather.main.temp)} °C
-              </div>
-              <div className="weather"> {weather.weather[0].main} </div>
-            </div>
-          </div>
-        ) : (
-          <>
-            <h1>
-              <Typewriter
-                words={["Vaso", "Huseyin", "Mohamad Ammar", "!"]}
-                loop={true}
-                cursor
-                cursorStyle="_"
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1000}
-              />
-            </h1>
-          </>
-        )}
       </main>
     </div>
   );
