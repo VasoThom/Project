@@ -5,7 +5,11 @@ function Footer() {
       style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
     >
       &copy; {new Date().getFullYear()} Copyright:{" "}
-      <a className="text-dark" href="https://myproject-three-pied.vercel.app/">
+      <a
+        className="text-dark"
+        href="https://myproject-three-pied.vercel.app/"
+        alt="name"
+      >
         Weather App
       </a>
     </div>
