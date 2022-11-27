@@ -47,8 +47,6 @@ export default function Input() {
         .then((result) => {
           setWeather(result);
 
-          // setQuery("");
-
           setWhichDays();
           // console.log(weather);
           console.log(result);
