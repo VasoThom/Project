@@ -46,7 +46,7 @@ export default function Input() {
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
-          setQuery("");
+          // setQuery("");
           setWhichDays();
           // console.log(weather);
           console.log(result);
@@ -83,8 +83,10 @@ export default function Input() {
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
-
-    return `${day} ${date} ${month} ${year}`;
+    let myDate = new Date();
+    let cur_time =
+      myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds();
+    return `${day} ${date} ${month} ${year}      ${cur_time}`;
   };
   return (
     <div
@@ -121,6 +123,10 @@ export default function Input() {
                 {Math.round(weather.main.temp)} °C
               </div>
               <div className="weather"> {weather.weather[0].main} </div>
+              <div className="min-max">
+                {Math.round(weather.main.temp_min)} °C /
+                {Math.round(weather.main.temp_max)} °C
+              </div>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <button className="btn btn-light" onClick={handleClick} value={3}>
