@@ -73,7 +73,7 @@ main {
 }
 
 .location-box .date {
-  color: white;
+  color: rgb(232, 208, 208);
   font-size: 2rem;
   text-align: center;
 
@@ -116,7 +116,6 @@ h1 {
   padding: 100px;
   text-shadow: 4px 5px 6px rgba(0, 0, 0, 0.6);
 }
-
 .min-max {
   font-size: 20px;
   font-weight: 100;

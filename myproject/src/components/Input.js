@@ -46,7 +46,7 @@ export default function Input() {
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
-          //setQuery("");
+          setQuery("");
           setWhichDays();
           // console.log(weather);
           console.log(result);
@@ -84,10 +84,8 @@ export default function Input() {
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
-    let myDate = new Date();
-    let cur_time =
-      myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds();
-    return `${day} ${date} ${month} ${year}      ${cur_time}`;
+
+    return `${day} ${date} ${month} ${year}`;
   };
   return (
     <div
